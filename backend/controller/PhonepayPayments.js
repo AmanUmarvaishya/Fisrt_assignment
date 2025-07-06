@@ -10,7 +10,7 @@ const PhonepayPayments =async (req, res) => {
  
   const { amount, mobile } = req.body;
   console.log(req.body)
-  const txnId = 'TXN' + Date.now()
+  const txnId = 'TXN' + Date.now()  //original date 
 
   const body = {
     merchantId: process.env.MERCHANT_ID,
@@ -19,7 +19,7 @@ const PhonepayPayments =async (req, res) => {
     amount: amount * 100,
     redirectUrl: 'http://localhost:5173/signup',
     redirectMode: 'REDIRECT',
-    callbackUrl: 'http://localhost:5173/signup',
+    callbackUrl: 'http://localhost:5173/signup',//for successfull payments
     paymentInstrument: { type: 'PAY_PAGE' },
     mobileNumber: mobile
   }
